@@ -26,14 +26,14 @@ resource "google_compute_instance" "app" {
   }
 
   connection {
-    type = "ssh"
-    user = "${var.user_ssh}"
-    agent = false
+    type        = "ssh"
+    user        = "${var.user_ssh}"
+    agent       = false
     private_key = "${file(var.private_key_path)}"
   }
 
   provisioner "file" {
-    source = "files/puma.service"
+    source      = "files/puma.service"
     destination = "/tmp/puma.service"
   }
 
@@ -54,4 +54,3 @@ resource "google_compute_firewall" "firewall_puma" {
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["reddit-app"]
 }
-

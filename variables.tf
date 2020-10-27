@@ -4,7 +4,7 @@ variable project {
 
 variable region {
   description = "Region"
-  default = "europe-west1"
+  default     = "europe-west1"
 }
 
 variable public_key_path {
@@ -16,17 +16,17 @@ variable disk_image {
 }
 
 variable machine_type {
-    description = "Default machine type"
+  description = "Default machine type"
 }
 
 variable private_key_path {
-    description = "Private key for ssh connection"
+  description = "Private key for ssh connection"
 }
 
 variable zone {
-    description = "Default zone"
+  description = "Default zone"
 }
 
 variable user_ssh {
-    description = "Username for ssh private and public keys"
+  description = "Username for ssh private and public keys"
 }
