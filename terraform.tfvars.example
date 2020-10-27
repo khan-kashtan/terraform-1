@@ -1,0 +1,8 @@
+project = "Project_ID"
+region  = "europe-west1-b"
+public_key_path = "~/.ssh/ssh_username.pub"
+machine_type = "g1-small"
+disk_image = "name_of_custon_or_comunity_image"
+private_key_path = "~/.ssh/ssh_username"
+zone = "europe-west1-b"
+user_ssh = "username"

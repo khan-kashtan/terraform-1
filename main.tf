@@ -1,22 +1,22 @@
 provider "google" {
   version = "1.4.0"
-  project = "hardy-city-293219"
-  region  = "europe-west1-b"
+  project = "${var.project}"
+  region  = "${var.region}"
 }
 
 resource "google_compute_instance" "app" {
   metadata {
-    ssh-keys = "zhorshua:${file("~/igor.pub")}"
+    ssh-keys = "${var.user_ssh}:${file(var.public_key_path)}"
   }
 
   name         = "reddit-app"
-  machine_type = "g1-small"
-  zone         = "europe-west1-b"
+  machine_type = "${var.machine_type}"
+  zone         = "${var.zone}"
   tags         = ["reddit-app"]
 
   boot_disk {
     initialize_params {
-      image = "reddit-base"
+      image = "${var.disk_image}"
     }
   }
 
@@ -27,9 +27,9 @@ resource "google_compute_instance" "app" {
 
   connection {
     type = "ssh"
-    user = "zhorshua"
+    user = "${var.user_ssh}"
     agent = false
-    private_key = "${file("~/igor")}"
+    private_key = "${file(var.private_key_path)}"
   }
 
   provisioner "file" {
